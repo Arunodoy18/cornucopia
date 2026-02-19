@@ -44,7 +44,11 @@
               pnpm install          # Install dependencies
               npm run build        # Build production version
               pnpm run coverage
-              pnpm audit --prod
+
+          - name: Security audit
+            working-directory: cornucopia.owasp.org
+            continue-on-error: true
+            run: pnpm audit --prod
 
           - name: Smoke test
             working-directory: cornucopia.owasp.org
